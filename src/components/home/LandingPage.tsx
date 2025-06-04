@@ -11,12 +11,20 @@ const LandingPage: React.FC = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Быстрая доставка вашей любимой еды в любую точку города
           </p>
-          <Link
-            to="/login/client"
-            className="bg-white text-indigo-600 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 inline-block"
-          >
-            Сделать заказ
-          </Link>
+          <div className="space-x-4">
+            <Link
+              to="/login/client"
+              className="bg-white text-indigo-600 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 inline-block"
+            >
+              Войти
+            </Link>
+            <Link
+              to="/register"
+              className="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 inline-block"
+            >
+              Регистрация
+            </Link>
+          </div>
         </div>
       </div>
       
