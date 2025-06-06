@@ -68,7 +68,7 @@ const Header: React.FC = () => {
             <Link to="/" className="text-white text-xl font-bold">
               ЭкспрессДоставка
             </Link>
-            
+
             <nav className="hidden md:flex ml-6">
               {getNavLinks()}
             </nav>
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
                     <ShoppingCart className="h-6 w-6" />
                   </Link>
                 )}
-                <button
+                <button 
                   onClick={handleLogout}
                   className="text-white hover:text-gray-200"
                   aria-label="Выйти"

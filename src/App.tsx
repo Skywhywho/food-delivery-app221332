@@ -9,6 +9,7 @@ import Layout from './components/layout/Layout';
 // Auth Components
 import LoginForm from './components/auth/LoginForm';
 import RegisterForm from './components/auth/RegisterForm';
+import CourierRegisterForm from './components/auth/CourierRegisterForm';
 
 // Client Components
 import Menu from './components/client/Menu';
@@ -108,6 +109,7 @@ function App() {
           <Route path="/login/courier" element={<LoginForm role="courier" />} />
           <Route path="/login/admin" element={<LoginForm role="admin" />} />
           <Route path="/register" element={<RegisterForm />} />
+          <Route path="/register/courier" element={<CourierRegisterForm />} />
           
           {/* Client Routes */}
           <Route path="/client/menu" element={

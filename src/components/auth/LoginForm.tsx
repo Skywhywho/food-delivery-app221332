@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../../store/store';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UserRole } from '../../types';
 
 interface LoginFormProps {
@@ -57,8 +57,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ role }) => {
         </div>
       )}
       
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
             Email
           </label>
@@ -72,7 +72,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ role }) => {
           />
         </div>
         
-        <div className="mb-6">
+        <div>
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
             Пароль
           </label>
@@ -86,7 +86,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ role }) => {
           />
         </div>
         
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pt-4">
           <button
             type="submit"
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
@@ -94,13 +94,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ role }) => {
             Войти
           </button>
           
-          {role === 'client' && (
-            <a
-              href="/register"
-              className="inline-block align-baseline font-bold text-sm text-indigo-600 hover:text-indigo-800"
+          {role !== 'admin' && (
+            <Link
+              to={role === 'client' ? '/register' : '/register/courier'}
+              className="inline-block align-baseline font-bold text-sm text-indigo-600 hover:text-indigo-800 border border-indigo-600 rounded px-4 py-2 hover:bg-indigo-50"
             >
               Зарегистрироваться
-            </a>
+            </Link>
           )}
         </div>
       </form>

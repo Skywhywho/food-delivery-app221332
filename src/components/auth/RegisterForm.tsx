@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../../store/store';
 import { useNavigate } from 'react-router-dom';
-import { api } from '../../utils/api';
 
 interface Address {
   address_id: number;
@@ -43,7 +42,7 @@ const RegisterForm: React.FC = () => {
   
   const register = useStore(state => state.register);
   const navigate = useNavigate();
-
+  
   // Загрузка списка улиц при монтировании компонента
   useEffect(() => {
     loadStreets();
@@ -85,7 +84,7 @@ const RegisterForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+    
     try {
       // Регистрация через API
       const response = await fetch('http://localhost/food-delivery-app/api/register.php', {
@@ -129,7 +128,7 @@ const RegisterForm: React.FC = () => {
         address: selectedAddress ? `${selectedAddress.street}, ${selectedAddress.house_number}` : '',
         role: 'client'
       });
-
+      
       navigate('/client/menu');
     } catch (err) {
       setError('Ошибка при регистрации. Пожалуйста, попробуйте еще раз.');
@@ -144,7 +143,7 @@ const RegisterForm: React.FC = () => {
       [e.target.name]: e.target.value
     });
   };
-
+  
   return (
     <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Регистрация клиента</h2>
@@ -196,7 +195,7 @@ const RegisterForm: React.FC = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-
+        
         <div>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Пароль *
@@ -210,7 +209,7 @@ const RegisterForm: React.FC = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-
+        
         <div>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Улица

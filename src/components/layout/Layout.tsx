@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const weather = useStore(state => state.weather);
-  
+
   return (
     <div className={`min-h-screen flex flex-col ${weather.condition === 'bad' ? 'bg-gray-100' : 'bg-gray-50'}`}>
       <Header />

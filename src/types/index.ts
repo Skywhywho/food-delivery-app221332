@@ -8,6 +8,8 @@ export interface User {
   password: string;
   role: UserRole;
   address?: string;
+  transport_type?: string;
+  status?: 'свободен' | 'занят' | 'не работает';
 }
 
 export interface MenuItem {
